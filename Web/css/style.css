@@ -1,0 +1,360 @@
+/* css/variables.css */
+:root {
+    /* css/style.css */
+
+/* === 1. Reset a základní nastavení (UI/UX) === */
+*, *::before, *::after {
+    box-sizing: border-box; /* Zabrání přetékání prvků přes šířku */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    /* Uhlazení písma pro lepší čitelnost tmavého režimu */
+    -webkit-font-smoothing: antialiased; 
+}
+
+/* Typografická hierarchie */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-sm);
+    letter-spacing: 1px;
+}
+
+/* === 2. Přístupnost (Accessibility - Bod 2 v zadání) === */
+/* Tlačítko pro přeskočení obsahu pro uživatele čteček obrazovky (Tabulátor) */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background-color: var(--color-hextech-gold);
+    color: var(--color-bg-darker);
+    padding: 10px;
+    z-index: 100;
+    text-decoration: none;
+    font-weight: bold;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0; /* Zobrazí se pouze, když na něj uživatel najede klávesnicí */
+}
+
+/* === 3. Hlavička a Navigace (Mobile First) === */
+header {
+    background-color: var(--color-bg-darker);
+    padding: var(--space-md);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 2px solid var(--color-hextech-gold);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Na mobilu odtlačí logo a burger od sebe */
+    align-items: center;
+    flex-wrap: wrap; /* Umožní menu odskočit pod hlavičku */
+}
+
+/* --- Tlačítko Hamburger --- */
+.menu-toggle {
+    display: block; /* Na mobilu viditelné */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 100;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-hextech-gold);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.hamburger::before, .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+}
+
+.hamburger::before { transform: translateY(-10px); }
+.hamburger::after { transform: translateY(10px); }
+
+/* --- Animace křížku (když je menu aktivní) --- */
+.menu-toggle.active .hamburger { background-color: transparent; }
+.menu-toggle.active .hamburger::before { transform: rotate(45deg) translate(0, 0); }
+.menu-toggle.active .hamburger::active .hamburger::after { transform: rotate(-45deg) translate(0, 0); }
+
+/* --- Samotné Menu --- */
+.nav-menu {
+    list-style: none;
+    display: none; /* Na mobilu v základu skryté */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding-top: var(--space-md);
+    gap: var(--space-md);
+}
+
+/* Třída, kterou bude přidávat JavaScript */
+.nav-menu.active {
+    display: flex;
+}
+
+nav a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    display: block;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a:focus {
+    color: var(--color-hextech-gold);
+}
+
+/* === 6. Media Queries (Desktopové zobrazení) === */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none; /* Skryjeme burger na PC */
+    }
+
+    .nav-menu {
+        display: flex; /* Na PC je menu vždy viditelné */
+        flex-direction: row;
+        width: auto;
+        padding-top: 0;
+    }
+}
+
+/* === 4. Hero sekce (Úvodní poutač) === */
+.hero {
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    /* Temný gradient simulující hloubku */
+    background: linear-gradient(to bottom, var(--color-bg-darker), var(--color-bg-dark));
+    border-bottom: 1px solid rgba(200, 155, 60, 0.2);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--color-hextech-gold);
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* === 5. Patička === */
+footer {
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    background-color: var(--color-bg-darker);
+    border-top: 1px solid var(--color-hextech-gold);
+    margin-top: var(--space-xl);
+    font-size: 0.85rem;
+}
+
+/* === 7. Sekce Šampioni (CSS Grid) === */
+.champions-section {
+    padding: var(--space-xl) var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto; /* Vystředí obsah na velkých monitorech */
+}
+
+.champions-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-hextech-gold);
+    margin-bottom: var(--space-xl);
+    text-transform: uppercase;
+}
+
+/* Magie CSS Gridu: automatický responzivní layout! */
+.champions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+}
+
+.champion-card {
+    background-color: var(--color-bg-darker);
+    border: 1px solid rgba(200, 155, 60, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative; /* Pro absolutní pozicování textu vespod */
+}
+
+/* UI/UX: Interaktivní zpětná vazba při najetí myší */
+.champion-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-hextech-gold);
+}
+
+.champion-card img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover; /* Obrázek se nedeformuje, automaticky se ořízne */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.champion-card:hover img {
+    transform: scale(1.05); /* Jemný zoom efekt */
+}
+
+.card-content {
+    padding: var(--space-md);
+    text-align: center;
+    /* Tmavý přechod, aby byl text na obrázku vždy čitelný (Přístupnost) */
+    background: linear-gradient(to top, var(--color-bg-darker) 80%, transparent);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.card-content h3 {
+    color: var(--color-text-light);
+    font-size: 2rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.card-content p {
+    color: var(--color-hextech-gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+} 
+/* === 8. Sekce Regiony (Střídavý Flexbox) === */
+.regions-section {
+    padding: var(--space-xl) var(--space-md);
+    background-color: var(--color-bg-darker); /* Tmavší pozadí pro vizuální oddělení sekcí */
+    border-top: 1px solid rgba(200, 155, 60, 0.2);
+}
+
+.regions-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-hextech-gold);
+    margin-bottom: var(--space-xl);
+    text-transform: uppercase;
+}
+
+.region-card {
+    display: flex;
+    flex-direction: column; /* Mobile First: obrázek a text pod sebou */
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.region-image, .region-content {
+    flex: 1; /* Zaručí, že obrázek i text zaberou stejný prostor (polovinu šířky na PC) */
+}
+
+.region-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 2px solid rgba(200, 155, 60, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: block; /* Odstraní neviditelnou mezeru pod obrázkem */
+}
+
+.region-content h3 {
+    font-size: 2rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-sm);
+}
+
+/* UI/UX: Stylování tlačítka ve stylu herního klienta */
+.btn-primary {
+    display: inline-block;
+    margin-top: var(--space-md);
+    padding: 10px 20px;
+    color: var(--color-hextech-gold);
+    text-decoration: none;
+    border: 1px solid var(--color-hextech-gold);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--color-hextech-gold);
+    color: var(--color-bg-darker);
+    outline: none;
+}
+
+/* Desktop zobrazení (střídavý layout) */
+@media (min-width: 768px) {
+    .region-card {
+        flex-direction: row; /* Obrázek a text vedle sebe */
+        align-items: center; /* Vycentruje text vertikálně k obrázku */
+    }
+
+    /* Magie střídavého layoutu - prohodí prvky */
+    .region-card.reverse {
+        flex-direction: row-reverse; 
+    }
+}
+/* === 6. Media Queries (Desktopové zobrazení) === */
+/* Pokud je obrazovka širší než 768px, změníme chování layoutu */
+@media (min-width: 768px) {
+    nav {
+        flex-direction: row; /* Logo a odkazy vedle sebe */
+        justify-content: space-between;
+    }
+
+    .hero h1 {
+        font-size: 4.5rem; /* Zvětšení nadpisu pro velké obrazovky */
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+    }
+}
+    /* Barevná paleta League of Legends */
+    --color-hextech-gold: #C89B3C;
+    --color-hextech-gold-hover: #F0E6D2;
+    --color-magic-blue: #0AC8B9;
+    --color-noxus-red: #D13639;
+    
+    /* Pozadí a text (Dark Theme) */
+    --color-bg-dark: #0A1428;     /* Hlavní velmi tmavá modrá */
+    --color-bg-darker: #010A13;   /* Pozadí pro hlavičku/patičku */
+    --color-text-main: #A09B8C;   /* Šedozlatá pro běžný text - zaručuje dobrý kontrast (Přístupnost) */
+    --color-text-light: #F0E6D2;  /* Světlá pro nadpisy */
+
+    /* Typografie (podobná té z klienta LoL) */
+    --font-heading: 'Beaufort for LOL', serif; /* Úderný patkový font na nadpisy */
+    --font-body: 'Spiegel', sans-serif;        /* Výborně čitelný bezpatkový font pro text */
+
+    /* Rozestupy (Spacing system) */
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+}
