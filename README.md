@@ -53,3 +53,30 @@ LOL-web/
         ├── demacia.webp # Horizontální scenérie regionu
         ├── noxus.webp   # Horizontální scenérie regionu
         └── teemo.webp   # Grafický podklad pro vestavěnou minihru
+
+AI Deník: Tvorba webu a spolupráce s umělou inteligencí
+Během vývoje tohoto projektu byla jako technický asistent a konzultant využita umělá inteligence (Google Gemini). Níže je uveden seznam klíčových promptů a konkrétní popis toho, co AI do projektu přinesla a jak pomohla splnit technické specifikace zadání:
+
+Prompt: "Vybereme téma udělal bych to na téma league of legends"
+
+Přínos AI: Návrh základní sémantické HTML5 struktury a okamžité vyřešení SEO (meta tagy) a Open Graph protokolů. AI také vygenerovala základní sadu CSS proměnných inspirovaných oficiálním designovým manuálem hry (barevná paleta Hextech).
+
+Prompt: "Muzu to dat do stejneho csska?" (Při dotazu na sloučení variables.css a style.css)
+
+Přínos AI: Odborná konzultace ohledně optimalizace výkonu (Performance). AI potvrdila a doporučila sloučení obou souborů, čímž se reálně snížil počet HTTP požadavků při načítání stránky. Tento krok měl přímý pozitivní dopad na skóre v Google Lighthouse.
+
+Prompt: "Co s tim" (Doplněno o screenshot chyb ERR_FILE_NOT_FOUND a CORS v konzoli prohlížeče)
+
+Přínos AI: Debugování kódu a vysvětlení bezpečnostních restrikcí moderních prohlížečů (problém protokolu file:///). AI mě krok za krokem navedla k instalaci a spuštění rozšíření Live Server ve VS Code, čímž byl zároveň splněn bod zadání týkající se správného lokálního zprovoznění.
+
+Prompt: "Pomuzes mi z tema obrazkama" a "Nefunguje mi to" (Při nasazování grafiky do Gridu)
+
+Přínos AI: Asistence s formáty obrázků a řešení chybějících souborů. AI pomohla odhalit chyby v relativních cestách a nesoulad mezi reálnou příponou souboru na disku (např. .png) a očekávaným formátem .webp v kódu, čímž zajistila správné vykreslení rozvržení stránky.
+
+Prompt: "Jeste bych udelal nejake efekty jako treba padajici spely"
+
+Přínos AI: Návrh a implementace pokročilého částicového systému na pozadí pomocí Vanilla JS a čistého CSS. AI vyřešila dva kritické problémy: správu paměti (aby se web nesekal, JS automaticky odstraňuje spelly z DOMu po jejich dopadu) a Přístupnost (animace se automaticky skryjí přes @media (prefers-reduced-motion) pro uživatele s citlivostí na pohyb).
+
+Prompt: "Nezkusime tam udelat treba jeste nejakou mensi minihru" a "Dáme tam nejakou kdyz nedokazes vcas dostat vsechny a jinou kdyz to dokazes?"
+
+Přínos AI: Kompletní asistence při programování interaktivní minihry "Ulov Teema" čistě v JavaScriptu (bez knihoven). AI navrhla herní smyčku, časovač, logiku výhry/prohry a implementovala pokročilé ARIA atributy (aria-live="polite" a aria-live="assertive"), aby čtečky obrazovky dokázaly nevidomým hráčům správně hlásit skóre a výsledek hry.
