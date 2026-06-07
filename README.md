@@ -81,4 +81,3 @@ Prompt: "Nezkusime tam udelat treba jeste nejakou mensi minihru" a "Dáme tam ne
 
 Přínos AI: Kompletní asistence při programování interaktivní minihry "Ulov Teema" čistě v JavaScriptu (bez knihoven). AI navrhla herní smyčku, časovač, logiku výhry/prohry a implementovala pokročilé ARIA atributy (aria-live="polite" a aria-live="assertive"), aby čtečky obrazovky dokázaly nevidomým hráčům správně hlásit skóre a výsledek hry.
 
-<img width="1902" height="1079" alt="image" src="https://github.com/user-attachments/assets/3fdfc208-7a23-47e7-85c5-aabf6332fd84" />
