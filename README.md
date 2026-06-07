@@ -81,3 +81,18 @@ Prompt: "Nezkusime tam udelat treba jeste nejakou mensi minihru" a "Dáme tam ne
 
 Přínos AI: Kompletní asistence při programování interaktivní minihry "Ulov Teema" čistě v JavaScriptu (bez knihoven). AI navrhla herní smyčku, časovač, logiku výhry/prohry a implementovala pokročilé ARIA atributy (aria-live="polite" a aria-live="assertive"), aby čtečky obrazovky dokázaly nevidomým hráčům správně hlásit skóre a výsledek hry.
 
+## 🖼️ Galerie (Ukázky projektu)
+
+Zde je vizuální ukázka finálního nasazeného projektu, která demonstruje responzivitu, designový systém a klíčové funkce webu.
+
+### 1. Desktopová verze (Úvod a CSS Grid)
+![Desktopové zobrazení webu](assets/img/screen-desktop.png)
+*Ukázka plnohodnotného zobrazení na PC, funkčního responzivního CSS Gridu u karet šampionů a aplikovaného tmavého Hextech motivu.*
+
+### 2. Mobilní verze (Mobile First a Hamburger menu)
+![Mobilní zobrazení a menu](assets/img/screen-mobile.png)
+*Demonstrace přístupu Mobile First – plně přizpůsobený layout pro menší obrazovky a funkční responzivní menu pro snadnou navigaci.*
+
+### 3. Klíčové funkce (Minihra a Gamifikace)
+![Minihra Ulov Teema](assets/img/screen-minihra.png)
+*Detail interaktivní minihry "Ulov Teema", která je poháněná čistým Vanilla JS. Dynamicky počítá skóre, obsahuje časovač a vyhodnocuje vítězství/prohru (včetně přístupných hlášení pro čtečky obrazovky).*
